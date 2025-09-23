@@ -168,19 +168,14 @@ And remember — never be sad, because your Ritesh will always be with you 💖
 <script>
     const music = document.getElementById("bg-music");
 
-    // Try autoplay (works on desktop)
-    document.addEventListener("DOMContentLoaded", () => {
-        music.play().catch(() => {
-            // If autoplay fails on mobile, wait for user click
-            console.log("Autoplay blocked. Will start on user interaction.");
+    // Try to play music as soon as page loads
+    window.addEventListener("load", () => {
+        music.play().catch((err) => {
+            console.log("Autoplay blocked. Waiting for permission:", err);
         });
     });
-
-    // Ensure music plays when "Click Here Riya" button is pressed
-    document.getElementById("btn__letter").addEventListener("click", () => {
-        music.play();
-    });
 </script>
+
 
 <script>
     let datetxt = "24 September";
